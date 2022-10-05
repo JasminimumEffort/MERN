@@ -1,0 +1,13 @@
+{
+  "name": "new-node-folder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "mycow": "cowsay -f armadillo \"moo\" "
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
