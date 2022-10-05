@@ -1,0 +1,20 @@
+"use strict";
+
+
+const add = (n1,n2) => (n1 + n2);
+
+const subt = (n1,n2) => (n1 - n2);
+
+const mult = (n1,n2) => (n1*n2);
+
+const div = (n1,n2) => (n1 / n2);
+
+const pow = (n1,n2) => (n1**n2);
+
+module.exports = {
+    add,
+    subt,
+    mult,
+    div,
+    pow
+}
