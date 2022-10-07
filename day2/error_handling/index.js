@@ -30,6 +30,15 @@ app.post("/newDog", (req, res, next) => {
     res.status(201).send(dogs);
 });
 
+//we are not deleting dogs. merely sending them home from their walks. still fixing
+// app.delete("/sendHome/:name", (req,res, next) => {
+//     const dname  = req.params.name;
+//     if (!(dogs.includes({"name":"dname"}))) return next({ status: 404, message: `${dname} is actually not on a walk today`});
+//     console.log(`${dname} is returning home and having a chew stick, they/'ve had a lovely walk!`);
+//     res.send(dogs.splice(dname));
+// })
+
+
 app.get('/bigError', (req, res, next) =>{
     next(Error(`This is also an error`));
 });
