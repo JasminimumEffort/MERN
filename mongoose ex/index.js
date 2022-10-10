@@ -1,6 +1,6 @@
 const express = require('express');
 
-const { dogModel } = require("../myexdb");
+const { dogModel } = require("./myexdb");
 
 const bodyParser = require('body-parser');
 
@@ -35,14 +35,36 @@ app.post("/newDog", (req, res, next) => {
 });
 
 // // we are not deleting dogs. merely sending them home from their walks. still fixing
- app.delete("/sendHome/:name", (req,res, next/*next*/) => {
-     const dname  = req.params.name;
-     if (!dogs.some(dogs => dogs.name === dname)) return next({ status: 404, message: `${dname} is actually not on a walk today`});
-     console.log(`${dname} is returning home and having a chew stick, they\'ve had a lovely walk!`);
-     dogModel.findbyIdandDelete(name).then(result => res.send(`${dname} is returning home and having a chew stick, they\'ve had a lovely walk!`)).catch(err => next(err));
-    //  res.send(dogs.splice(dname,1));
- });
+//  app.delete("/sendHome/:name", (req,res, next/*next*/) => {
+//      const dname  = req.params.name;
+//      if (!dogs.some(dogs => dogs.name === dname)) return next({ status: 404, message: `${dname} is actually not on a walk today`});
+//      console.log(`${dname} is returning home and having a chew stick, they\'ve had a lovely walk!`);
+//      dogModel.findbyIdandDelete(dname).then(result => res.send(`${dname} is returning home and having a chew stick, they\'ve had a lovely walk!`)).catch(err => next(err));
+//     //  res.send(dogs.splice(dname,1));
+//  });
 
+app.delete("/sendHome/:id", (req, res, next) => {
+    const {id}  = req.params;
+    console.log("ID:", id);
+    dogModel.findByIdAndDelete(id).then(result => res.send(result)).catch(err => next(err));
+});
+
+//updating json file version
+app.patch("/newVetRecords/:id", (req,res,next) => {
+    const {id} = req.params;
+    const dname = req.body.name;
+    console.log("New Name:", dname);
+    dogModel.findByIdAndUpdate(id, {name: dname}).then(result => res.send(result)).catch(err => next(err));
+
+});
+//query version
+app.patch("/newCollar/:id", (req,res,next) => {
+    const {id} = req.params;
+    const dname = req.query.name;
+    console.log("Query:", dname);
+    dogModel.findByIdAndUpdate(id, {name: dname}).then(result => res.send(result)).catch(err => next(err));
+
+});
 //(dogs.includes(dname))
 // app.delete("/delete/:id", (req, res) => {
 //     res.send(names.splice(req.params.id, 1));
