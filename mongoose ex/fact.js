@@ -4,31 +4,26 @@ const app = express();
 
 const fact2 = (inp) => {
     let total = 1;
-    let i = 2;
+    let i = 1;
     while (i <= inp) {
         total = i * total;
         if (total == inp) {
-            return i;
+            return `${i}!`;
             break;
-         } else if (total < inp) {
+         } else if (total < inp && inp>0 && inp%total == 0) {
             i++;
-         } else if (total > inp) {
+         } else {
             return "this is not a factorial";
             break;
         }
     }
 }
 
-const bfact = (inp) => {
-    divide
-}
-
 const fact = (inp) => {
     let total = 1;
-    let i = 2;
-    if (Number.isInteger = false){
+    let i = 1;
+    if (Number.isInteger = false || inp <= 0 ){
         return "This is not a factorial"
-        break;
     }
     else{
         while (i <= inp) {
@@ -49,7 +44,7 @@ const fact = (inp) => {
     } 
 };
 
-console.log(fact(120), fact2(120));
+console.log(fact(-120), fact2(120.5));
 
 const server = app.listen(1296, () => {
     console.log(`Server started successfully on port number ${server.address().port}`);
