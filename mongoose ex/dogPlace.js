@@ -35,7 +35,7 @@ const dogPlace = (place) => {
          }
 
      }
-     return dogPlaces;
+     return dogPlaces.join(", ");
 };
 
 console.log(dogPlace(20));
