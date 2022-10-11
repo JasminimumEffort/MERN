@@ -8,13 +8,11 @@ const fact2 = (inp) => {
     while (i <= inp) {
         total = i * total;
         if (total == inp) {
-            return `${i}!`;
-            break;
+            return i;
          } else if (total < inp && inp>0 && inp%total == 0) {
             i++;
          } else {
             return "this is not a factorial";
-            break;
         }
     }
 }
@@ -44,7 +42,26 @@ const fact = (inp) => {
     } 
 };
 
-console.log(fact(-120), fact2(120.5));
+// const fact3 = (inp) =>{
+//     let divider = 1;
+
+//     while (total > 1) {
+//         divider ++;
+
+//         total /= divider;
+//     }
+
+//     return total == 1 ? divder + "1" : "NONE";
+// } 
+
+// for(let i )
+
+console.log(fact(-120), fact2(120));
+
+module.exports = {
+    fact,
+    fact2
+}
 
 const server = app.listen(1296, () => {
     console.log(`Server started successfully on port number ${server.address().port}`);
