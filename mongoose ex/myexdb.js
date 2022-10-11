@@ -19,7 +19,7 @@ const dogModel = mongoose.model("dog", dogSchema); // object with all the mongo 
 //             Required: true
 //         },
 //         name2: String,
-//         name3:string
+//         name3: String
 //     });
  
 // dogSchema = Schema({

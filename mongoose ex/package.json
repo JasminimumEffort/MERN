@@ -3,15 +3,17 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha",
     "start": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "chai": "^4.3.6",
     "demon": "^1.4.4",
     "express": "^4.18.2",
+    "mocha": "^10.0.0",
     "mongoose": "^6.6.5",
     "nodemon": "^2.0.20"
   },
