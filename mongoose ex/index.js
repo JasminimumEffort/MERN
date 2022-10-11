@@ -17,8 +17,13 @@ const walkies = (req, res, next) => {
     next();
 };
 
-app.get('/getAll', walkies, (req, res) => {
-    dogModel.find({}).then(results => res.send(results)).catch(err => next(err));
+app.get('/getAll', walkies, async (req, res, next) => {
+    try{
+       res.send(dog.model.find({}))
+    }
+    catch(err){
+        return next(err);
+    }
 });
 
 app.get("/get/:id", (req, res, next) => {
@@ -27,14 +32,18 @@ app.get("/get/:id", (req, res, next) => {
     res.send(dogs[id]);
 });
 
-app.post("/newDog", (req, res, next) => {
+app.post("/newDog", async (req, res, next) => {
     if (!req.body.name) return next({ status: 400, message: "Missing dog"})
-    dogModel.create(req.body).then(result => res.status(201).send(result)).catch(err=> next(err));
-    // dogs.push(req.body);
-    // res.status(201).send(dogs);
+    try{
+        const result = await dogModel.create(req.body);
+        res.status(201).send(result);
+    }
+    catch(err){
+        return next(err);
+    } 
 });
 
-// // we are not deleting dogs. merely sending them home from their walks. still fixing
+// // we are not deleting dogs. merely sending them home from their walks. This worked with name
 //  app.delete("/sendHome/:name", (req,res, next/*next*/) => {
 //      const dname  = req.params.name;
 //      if (!dogs.some(dogs => dogs.name === dname)) return next({ status: 404, message: `${dname} is actually not on a walk today`});
@@ -43,28 +52,47 @@ app.post("/newDog", (req, res, next) => {
 //     //  res.send(dogs.splice(dname,1));
 //  });
 
-app.delete("/sendHome/:id", (req, res, next) => {
+//updated with async to show the dogs that haven't gone home
+app.delete("/sendHome/:id", async (req, res, next) => {
     const {id}  = req.params;
     console.log("ID:", id);
-    dogModel.findByIdAndDelete(id).then(result => res.send(result)).catch(err => next(err));
+    try{
+        await dogModel.findByIdAndDelete(id);
+        const result = await dogModel.find({});
+        res.send(result)
+    } catch(err){
+        return next(err)
+    }
 });
 
 //updating json file version
-app.patch("/newVetRecords/:id", (req,res,next) => {
+app.patch("/newVetRecords/:id", async (req,res,next) => {
     const {id} = req.params;
     const dname = req.body.name;
     console.log("New Name:", dname);
-    dogModel.findByIdAndUpdate(id, {name: dname}).then(result => res.send(result)).catch(err => next(err));
-
+    try{
+        await dogModel.findByIdAndUpdate(id, {name: dname});
+        const result = await dogModel.findById(id);
+        res.send(result);
+    }
+    catch(err){
+        return next(err)
+    }
 });
 //query version
-app.patch("/newCollar/:id", (req,res,next) => {
+app.patch("/newCollar/:id", async (req,res,next) => {
     const {id} = req.params;
     const dname = req.query.name;
     console.log("Query:", dname);
-    dogModel.findByIdAndUpdate(id, {name: dname}).then(result => res.send(result)).catch(err => next(err));
-
+    try{
+        await dogModel.findByIdAndUpdate(id, {name: dname})
+        const newCollar = await dogModel.findById(id);
+        res.send(newCollar)
+    } catch(err){
+        return next(err)
+    }
 });
+
 //(dogs.includes(dname))
 // app.delete("/delete/:id", (req, res) => {
 //     res.send(names.splice(req.params.id, 1));
