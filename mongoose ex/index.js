@@ -17,20 +17,34 @@ const walkies = (req, res, next) => {
     next();
 };
 
-app.get('/getAll', walkies, async (req, res, next) => {
+app.get('/getAll', /*walkies, async*/ (req, res, next) => {
+    dogModel.find({}).then(results => res.send(results)).catch(err => next(err))
+//     try{
+//         all = dogModel.find({});
+//        await res.send(all);
+//     }
+//     catch(err){
+//         return next(err);
+//     }
+ });
+
+ app.get("/petDog/:id", async (req,res,next) => {
+    const {id} = req.params;
     try{
-       res.send(dog.model.find({}))
+        await dogModel.findById(id);
+        const result = await dogModel.findById(id);
+        res.send(result);
     }
     catch(err){
-        return next(err);
+        return next(err)
     }
 });
 
-app.get("/get/:id", (req, res, next) => {
-    const {id} = req.params;
-    if (!dogs[id]) return next ("This dog is not on a walk today");
-    res.send(dogs[id]);
-});
+// app.get("/get/:id", (req, res, next) => {
+//     const {id} = req.params.id;
+//     if (!dogModel[id]) return next ("This dog is not on a walk today");
+//     dogModel.findById(id).then(result => res.send(result)).catch(err => next(err));
+// });
 
 app.post("/newDog", async (req, res, next) => {
     if (!req.body.name) return next({ status: 400, message: "Missing dog"})
@@ -115,3 +129,5 @@ app.use((err, req, res, next) => {
 const server = app.listen(1296, () => {
     console.log(`Server started successfully on port number ${server.address().port}`);
 });
+
+module.exports = server;

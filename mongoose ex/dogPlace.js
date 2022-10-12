@@ -1,9 +1,8 @@
 const dogPlace = (place) => {
     let dogPlaces = []
-    let i = 1;
-    for (;i <= 100; i++) {
+    for (let i = 1 ;i <= 100; i++) {
         if (i == place) {
-            //boo
+            continue
          }
          else if (i % 10 == 1){
             if (i == 11){
@@ -35,7 +34,12 @@ const dogPlace = (place) => {
          }
 
      }
-     return dogPlaces.join(", ");
+     return dogPlaces//.join(", ");
 };
 
 console.log(dogPlace(20));
+
+
+module.exports = {
+    dogPlace
+}
