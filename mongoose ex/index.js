@@ -70,9 +70,12 @@ app.post("/newDog", async (req, res, next) => {
 app.delete("/sendHome/:id", async (req, res, next) => {
     const {id}  = req.params;
     console.log("ID:", id);
+    if (!dogModel.findById(id)) return next({ status: 404, message: `This dog is actually not on a walk today`});
     try{
+        // console.log(name.dogModel.findById(id) + `is going home`)
         await dogModel.findByIdAndDelete(id);
         const result = await dogModel.find({});
+        console.log()
         res.send(result)
     } catch(err){
         return next(err)

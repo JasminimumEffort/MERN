@@ -79,7 +79,7 @@ describe("dog tests", () => {
         chai.request(server).delete("/sendHome/" + goodDog._id).end((err, res) => {
             chai.expect(err).to.be.null;
             chai.expect(res.status).to.equal(200);
-            chai.expect(res.body).to.be.not.null;
+            chai.expect(res.body).to.not.include(goodDog)
             done(); //tells mocha the test has finished
         });
     });
