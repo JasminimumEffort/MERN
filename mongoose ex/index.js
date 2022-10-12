@@ -17,15 +17,15 @@ const walkies = (req, res, next) => {
     next();
 };
 
-app.get('/getAll', /*walkies, async*/ (req, res, next) => {
-    dogModel.find({}).then(results => res.send(results)).catch(err => next(err))
-//     try{
-//         all = dogModel.find({});
-//        await res.send(all);
-//     }
-//     catch(err){
-//         return next(err);
-//     }
+app.get('/getAll', /*walkies,*/ async (req, res, next) => {
+    // dogModel.find({}).then(results => res.send(results)).catch(err => next(err))
+    try{
+        let all = await dogModel.find({});
+        res.send(all);
+    }
+    catch(err){
+        return next(err);
+    }
  });
 
  app.get("/petDog/:id", async (req,res,next) => {
@@ -72,7 +72,8 @@ app.delete("/sendHome/:id", async (req, res, next) => {
     console.log("ID:", id);
     if (!dogModel.findById(id)) return next({ status: 404, message: `This dog is actually not on a walk today`});
     try{
-        // console.log(name.dogModel.findById(id) + `is going home`)
+         let dname = await (dogModel.findById(id, "name"));
+         console.log(dname  + `is going home`);
         await dogModel.findByIdAndDelete(id);
         const result = await dogModel.find({});
         console.log()
