@@ -1,8 +1,11 @@
-import { Component } from "react";
+
 // import styled from "styled-components";
 import DoxxMeQA from './doxxMeQa';
 import Somefunc from "./newFunction";
 import MyComponent from "./mycomponent";
+import TrueFalse from "./states/TrueFalse";
+import Counter from "./states/Counter";
+
 import './App.css';
 
 
@@ -16,9 +19,12 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-    <Somefunc/>
-    <DoxxMeQA/>
+    {/* <Somefunc/>
+    
     <MyComponent/>
+    <TrueFalse/> */}
+    <DoxxMeQA/>
+    <Counter/>
     </div>
   );
 }
