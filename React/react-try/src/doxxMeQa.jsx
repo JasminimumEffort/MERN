@@ -1,4 +1,4 @@
-const doxxMeQA = () => {
+function DoxxMeQA () {
 
   const address = {
       forename: "J",
@@ -21,4 +21,4 @@ const doxxMeQA = () => {
   );
 };
 
-export default doxxMeQA;
+export default DoxxMeQA;

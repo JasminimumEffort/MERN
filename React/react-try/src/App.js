@@ -1,7 +1,7 @@
-import logo from './logo.svg';
-import { Component } from "react";
-import styled from "styled-components";
-import doxxMeQA from './doxxMeQa.jsx';
+// // import { Component } from "react";
+// import styled from "styled-components";
+import DoxxMeQA from './doxxMeQa';
+import Somefunc from "./newFunction";
 import './App.css';
 
 
@@ -12,9 +12,12 @@ import './App.css';
 //   }
 // `;
 
-const App = () => {
+function App() {
   return (
-    <doxxMeQA />
+    <div className="App">
+    <Somefunc/>
+    <DoxxMeQA/>
+    </div>
   );
 }
 
@@ -24,18 +27,7 @@ export default App;
 
 // export default doxxMeQA;
 
-// class SomeComponent extends Component {
-//   render() {
-//     return(
-//       <div>
-//       <h2>This is embarrassing</h2>
-//       <p>I cannot believe someone would write this</p>
-//       </div>  
-//     );
-//   }
-// }
 
-// export default SomeComponent;
 
 
 /* function App() {
