@@ -1,7 +1,8 @@
-// // import { Component } from "react";
+import { Component } from "react";
 // import styled from "styled-components";
 import DoxxMeQA from './doxxMeQa';
 import Somefunc from "./newFunction";
+import MyComponent from "./mycomponent";
 import './App.css';
 
 
@@ -17,6 +18,7 @@ function App() {
     <div className="App">
     <Somefunc/>
     <DoxxMeQA/>
+    <MyComponent/>
     </div>
   );
 }
