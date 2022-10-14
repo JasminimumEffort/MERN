@@ -5,7 +5,8 @@ import Somefunc from "./newFunction";
 import MyComponent from "./mycomponent";
 import TrueFalse from "./states/TrueFalse";
 import Counter from "./states/Counter";
-
+import LoginControl from "./Components/loginControl";
+import SubContent from "./states/subcontent";
 import './App.css';
 
 
@@ -23,8 +24,10 @@ function App() {
     
     <MyComponent/>
     <TrueFalse/> */}
-    <DoxxMeQA/>
-    <Counter/>
+    {/* <DoxxMeQA/>
+    // <Counter/> */}
+     {/* <SubContent/> */}
+    <LoginControl/>
     </div>
   );
 }

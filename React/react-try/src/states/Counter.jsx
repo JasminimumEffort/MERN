@@ -5,7 +5,8 @@ function Counter(){
     let [hist, setHist] = useState([]);
 
     const getHist = () => {
-        hist.push(parseInt(count));
+        //setHist(currentHist => [...currentHist, Count])
+         hist.push(parseInt(count)); //alt way
         console.log(hist);
     }
 
@@ -26,7 +27,8 @@ function Counter(){
         <button onClick = {()=>{setCount(parseInt(count)+10); getHist()}}>INCREMENT TEN</button>
         <button onClick = {()=>{setCount(parseInt(count)-10); setHist()}}>DECREMENT TEN</button>
         <button onClick = {()=>{setCount(0); hist = []}}>RESET</button>
-        {hist.map((hist => <p>{hist}</p>))}
+        {/* {hist.map((hist => <p>{hist}</p>))} */}
+        {/* <p> {...hist}</p> */}
         </>
         
     )
