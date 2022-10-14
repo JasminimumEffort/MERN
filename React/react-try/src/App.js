@@ -7,6 +7,7 @@ import TrueFalse from "./states/TrueFalse";
 import Counter from "./states/Counter";
 import LoginControl from "./Components/loginControl";
 import SubContent from "./states/subcontent";
+import ProductManage from "./Components/productManage";
 import './App.css';
 
 
@@ -24,10 +25,11 @@ function App() {
     
     <MyComponent/>
     <TrueFalse/> */}
-    {/* <DoxxMeQA/>
-    // <Counter/> */}
+    {/* <DoxxMeQA/>*/}
+    <Counter/> 
      {/* <SubContent/> */}
-    <LoginControl/>
+    {/* <LoginControl/> */}
+    {/* <ProductManage/> */}
     </div>
   );
 }

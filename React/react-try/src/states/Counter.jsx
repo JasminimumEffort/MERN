@@ -29,6 +29,13 @@ function Counter(){
         <button onClick = {()=>{setCount(0); hist = []}}>RESET</button>
         {/* {hist.map((hist => <p>{hist}</p>))} */}
         {/* <p> {...hist}</p> */}
+        <h2>History: </h2>
+        <div>
+            {
+                Counter.hist.map(num => <p>{num}</p>)
+            }
+        </div>
+
         </>
         
     )
