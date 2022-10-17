@@ -24,24 +24,31 @@ useEffect(() => {
     GetFilms();
 },[title]);
 
-    const makeRequest =(event) => {
-        axios.get("http://www.omdbapi.com/?apikey=3b53446e&t=" + title)
-        .then(response => {
-            console.log(response.filmData);
-            setFilmData(response.filmData);
-        });
-    };
+// const SearchFilms = async () => {
+//     try{ const res = await axios.get("http://www.omdbapi.com/?apikey=3b53446e&s=" + title);
+//     console
+// }
+// }
+
+    // const makeRequest =(event) => {
+    //     axios.get("http://www.omdbapi.com/?apikey=3b53446e&t=" + title)
+    //     .then(response => {
+    //         console.log(response.filmData);
+    //         setFilmData(response.filmData);
+    //     });
+    // };
 
     return ( 
         <>
             <label htmlFor="EnterFilmTitle">Please input your film title here:</label>
             <input type="text" id="EnterFilmTitle" onChange={event => setTitle(event.target.value)} />
             <h2>{title}</h2>
-            <button onClick={(event) => makeRequest(event)}>Search</button>
+            {/* <button onClick={(event) => GetFilms(event)}>Search</button> */}
             <section>
                 <p>Title: {filmData.Title}</p>
                 <p>Release Year: {filmData.Year}</p>
                 <p>Runtime: {filmData.Runtime}</p>
+                <p>Description: {filmData.Plot}</p>
                 <img src={filmData.Poster} alt={title +"poster"}></img>
             </section>
         </>
