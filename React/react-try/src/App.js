@@ -10,6 +10,7 @@ import SubContent from "./states/subcontent";
 import ProductManage from "./Components/productManage";
 import EmployeeInfo from "./API/EmployeeInfo";
 import GetFilm from "./API/FilmRequest";
+import SearchFilm from "./API/FilmSearch";
 import './App.css';
 
 
@@ -33,7 +34,8 @@ function App() {
     {/* <LoginControl/> */}
     {/* <ProductManage/>
     <EmployeeInfo /> */}
-    <GetFilm/>
+    {/* <GetFilm/> */}
+    <SearchFilm/>
     </div>
   );
 }
