@@ -8,6 +8,8 @@ import Counter from "./states/Counter";
 import LoginControl from "./Components/loginControl";
 import SubContent from "./states/subcontent";
 import ProductManage from "./Components/productManage";
+import EmployeeInfo from "./API/EmployeeInfo";
+import GetFilm from "./API/FilmRequest";
 import './App.css';
 
 
@@ -26,10 +28,12 @@ function App() {
     <MyComponent/>
     <TrueFalse/> */}
     {/* <DoxxMeQA/>*/}
-    <Counter/> 
+    {/* <Counter/>  */}
      {/* <SubContent/> */}
     {/* <LoginControl/> */}
-    {/* <ProductManage/> */}
+    {/* <ProductManage/>
+    <EmployeeInfo /> */}
+    <GetFilm/>
     </div>
   );
 }
