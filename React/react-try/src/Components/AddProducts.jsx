@@ -1,5 +1,7 @@
+import SearchBar from './StolenSearch'
 
-const AddProducts = ({ submitHandler, newProduct, productAdd }) => {
+
+const AddProducts = ({ submitHandler, newProduct, handleAdd }) => {
     return (
         <form onSubmit={submitHandler}>
             <input
@@ -9,7 +11,7 @@ const AddProducts = ({ submitHandler, newProduct, productAdd }) => {
             />
             <button
                 type="button"
-                onClick={productAdd}
+                onClick={handleAdd}
             >
                 Add Product
           </button>
