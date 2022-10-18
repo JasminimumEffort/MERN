@@ -1,17 +1,21 @@
-const RemoveProducts = ({ submitHandler, removeProduct, handleRemove }) => {
+import SearchBar from './StolenSearch'
+
+
+const RemoveProducts = ({productRemove, search, setSearch, products, submitHandler}) => {
+    
     return (
         <form onSubmit={submitHandler}>
-            <input
-                placeholder="Enter product to remove:"
-                type="text"
-                onChange={removeProduct}
-            />
-            <button
-                type="button"
-                onClick={handleRemove}
-            >
-                Remove Product
-          </button>
+           <SearchBar text={search} changeHandler={(e) => setSearch(e.target.value)} />
+      {
+            products
+              .filter((product) => product.toLowerCase().startsWith(search.toLowerCase()))
+              .map((product, i) => (
+                <p>
+                  {`${product} `}
+                  <button type="button" onClick={() => productRemove(i)}>X</button>
+                </p>
+              ))
+        }
         </form>
     );
 }

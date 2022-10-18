@@ -32,10 +32,10 @@ function App() {
     {/* <Counter/>  */}
      {/* <SubContent/> */}
     {/* <LoginControl/> */}
-    {/* <ProductManage/>
-    <EmployeeInfo /> */}
-    {/* <GetFilm/> */}
-    <SearchFilm/>
+     <ProductManage/>
+    {/* <EmployeeInfo /> */}
+    {/* <GetFilm/>
+    <SearchFilm/> */}
     </div>
   );
 }

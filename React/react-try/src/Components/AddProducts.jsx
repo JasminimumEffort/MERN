@@ -1,4 +1,5 @@
-const AddProducts = ({ submitHandler, newProduct, handleAdd }) => {
+
+const AddProducts = ({ submitHandler, newProduct, productAdd }) => {
     return (
         <form onSubmit={submitHandler}>
             <input
@@ -8,7 +9,7 @@ const AddProducts = ({ submitHandler, newProduct, handleAdd }) => {
             />
             <button
                 type="button"
-                onClick={handleAdd}
+                onClick={productAdd}
             >
                 Add Product
           </button>
