@@ -38,11 +38,20 @@ const GetFilms = () => {
         <>
             <h2>{filmData.title}</h2>
             <section>
-                <p>Title: {filmData.Title}</p>
+                <h1>Title: {filmData.Title}</h1>
                 <p>Release Year: {filmData.Year}</p>
                 <p>Runtime: {filmData.Runtime}</p>
                 <p>Description: {filmData.Plot}</p>
                 <img src={filmData.Poster} alt={filmData.title +"poster"}></img>
+                <p>Rated: {filmData.Rated}</p>
+                <p>Genre: {filmData.Genre}</p>
+                <p>Director: {filmData.Director}</p>
+                <p>Writers: {filmData.Writer}</p>
+                <p>Actors: {filmData.Actors}</p>
+                <p>Genre: {filmData.Genre}</p>
+                <p>Awards: {filmData.Awards}</p>
+                <p>Language: {filmData.Language}</p>
+
             </section>
         </>
     );
