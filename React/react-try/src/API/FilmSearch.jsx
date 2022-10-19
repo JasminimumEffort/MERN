@@ -1,6 +1,10 @@
 import {useState, useEffect} from 'react';
 import axios from 'axios';
 import Film from "./FilmTemplate.jsx";
+import {
+    BrowserRouter as Router, Link, Route, Routes,
+  } from 'react-router-dom';
+import GetFilms from "./GetFilms.jsx";
 
 const SearchFilm = () => {
     const [title, setTitle] = useState("");
@@ -51,14 +55,17 @@ const SearchFilm = () => {
             <input type="text" id="EnterFilmTitle" value = {title} onChange={event => setTitle(event.target.value)} />
             <button type="button" onClick={SearchFilms}>SEARCH</button>
             <br/>
+            <div>
             {FilmData.map((film) => (
           <Film
             key={film.imdbID}
             title={film.Title}
             year={film.Year}
             poster={film.Poster}
-          />
-        ))}
+            button ={<button type="button" onClick={GetFilms(film.imdbID)}></button>}
+            />
+            
+        ))}</div>
             {/* <h2>{title}</h2>
             <section>
                 <p>Title: {filmData.Title}</p>
