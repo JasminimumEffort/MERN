@@ -11,6 +11,7 @@ import ProductManage from "./Components/productManage";
 import EmployeeInfo from "./API/EmployeeInfo";
 import GetFilm from "./API/FilmRequest";
 import SearchFilm from "./API/FilmSearch";
+import GetFilms from "./API/GetFilms";
 import {
   BrowserRouter as Router, Link, Route, Routes,
 } from 'react-router-dom';
@@ -110,6 +111,7 @@ function App() {
           <Route path="/ProductManage" element={<ProductManage/>} />
           <Route path="/GetFilm" element={<GetFilm/>} />
           <Route path="/SearchFilm" element={<SearchFilm/>}/>
+          <Route path="/GetFilms/:id" element={<GetFilms/>}/>
         </Routes>
     </Router>
     </div>

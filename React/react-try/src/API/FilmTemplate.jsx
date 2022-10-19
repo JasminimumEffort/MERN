@@ -1,6 +1,10 @@
 // import PropTypes from 'prop-types';
 
-function Film({ title, year, poster }) {
+import {
+  BrowserRouter as Router, Link, Route, Routes,
+} from 'react-router-dom';
+
+function Film({ title, year, poster, button }) {
   return (
     <>
       <p>
@@ -10,6 +14,11 @@ function Film({ title, year, poster }) {
         {`Year: ${year}`}
       </p>
       <img src={poster} alt="A film" />
+      <br/>
+      <Link to={"/GetFilms/" + button}>
+            <button type="button">Details</button>
+      </Link>
+
     </>
   );
 }

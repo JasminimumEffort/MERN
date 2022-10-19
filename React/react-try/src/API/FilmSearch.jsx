@@ -1,33 +1,33 @@
-import {useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Film from "./FilmTemplate.jsx";
 import {
     BrowserRouter as Router, Link, Route, Routes,
-  } from 'react-router-dom';
+} from 'react-router-dom';
 import GetFilms from "./GetFilms.jsx";
 
 const SearchFilm = () => {
     const [title, setTitle] = useState("");
     const [FilmData, setFilmData] = useState([]);
 
-//    const updateTitle = (event) => {
-//     event.preventDefault(); 
-//     setTitle(event.target.value);
-//    };
+    //    const updateTitle = (event) => {
+    //     event.preventDefault(); 
+    //     setTitle(event.target.value);
+    //    };
 
-    
-// useEffect(() => {
-//     const GetFilms = async () => {
-//         try{ const res = await 
-//             axios.get("http://www.omdbapi.com/?apikey=3b53446e&t=" + title);
-//         console.log("Response:", res);
-//         setFilmData(res.data);
-//         } catch(err){
 
-//         }
-//     }
-//     GetFilms();
-// },[title]);
+    // useEffect(() => {
+    //     const GetFilms = async () => {
+    //         try{ const res = await 
+    //             axios.get("http://www.omdbapi.com/?apikey=3b53446e&t=" + title);
+    //         console.log("Response:", res);
+    //         setFilmData(res.data);
+    //         } catch(err){
+
+    //         }
+    //     }
+    //     GetFilms();
+    // },[title]);
 
     const SearchFilms = async () => {
         const res = await axios.get("http://www.omdbapi.com/?apikey=3b53446e&s=" + title);
@@ -49,23 +49,23 @@ const SearchFilm = () => {
     //     });
     // };
 
-    return ( 
+    return (
         <>
             <label htmlFor="EnterFilmTitle">Please input your film title here:</label>
-            <input type="text" id="EnterFilmTitle" value = {title} onChange={event => setTitle(event.target.value)} />
+            <input type="text" id="EnterFilmTitle" value={title} onChange={event => setTitle(event.target.value)} />
             <button type="button" onClick={SearchFilms}>SEARCH</button>
-            <br/>
+            <br />
             <div>
-            {FilmData.map((film) => (
-          <Film
-            key={film.imdbID}
-            title={film.Title}
-            year={film.Year}
-            poster={film.Poster}
-            button ={<button type="button" onClick={GetFilms(film.imdbID)}></button>}
-            />
-            
-        ))}</div>
+                {FilmData.map((film) => (
+                    <Film
+                        key={film.imdbID}
+                        title={film.Title}
+                        year={film.Year}
+                        poster={film.Poster}
+                        button={film.imdbID}
+                    />
+
+                ))}</div>
             {/* <h2>{title}</h2>
             <section>
                 <p>Title: {filmData.Title}</p>
