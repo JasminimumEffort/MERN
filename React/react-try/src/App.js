@@ -11,7 +11,16 @@ import ProductManage from "./Components/productManage";
 import EmployeeInfo from "./API/EmployeeInfo";
 import GetFilm from "./API/FilmRequest";
 import SearchFilm from "./API/FilmSearch";
+import {
+  BrowserRouter as Router, Link, Route, Routes,
+} from 'react-router-dom';
 import './App.css';
+import ErrorPage from "./Components/Routing/404Page";
+import HomePage from "./Components/Routing/HomePage";
+import UsersPage from "./Components/Routing/UsersPage";
+import ContactPage from "./Components/Routing/ContactPage";
+import Navigation from './Components/Routing/Navigation';
+import UserParams from './Components/Routing/UserParams';
 
 
 // const Styles = styled.div`
@@ -32,10 +41,77 @@ function App() {
     {/* <Counter/>  */}
      {/* <SubContent/> */}
     {/* <LoginControl/> */}
-     <ProductManage/>
+     {/* <ProductManage/> */}
     {/* <EmployeeInfo /> */}
     {/* <GetFilm/>
     <SearchFilm/> */}
+    <Router>
+    <nav>
+    <header>
+          <h1>EVERYBODY LOVES REACT</h1>
+        </header>
+          <Link to="/ProductManage">
+          <button type="button">Do not click (Product Management)</button>
+          </Link>
+          <Link to="/GetFilm">
+            <button type="button">Click here to look for a specific film</button>
+          </Link>
+          <Link to="/SearchFilm">
+          <button type="button">Search Films</button>
+          </Link>
+          <br/>
+          <Link to="/SubContent">
+          <button type="button">SubContent</button>
+          </Link>
+          <Link to="/LoginControl">
+            <button type="button">Test Log In</button>
+          </Link>
+          <Link to="/EmployeeInfo">
+          <button type="button">Employee Info</button>
+          </Link>
+          <br/>
+          <Link to="/TrueFalse">
+          <button type="button">TrueFalse</button>
+          </Link>
+          <Link to="/DoxxMeQA">
+            <button type="button">DoxxMeQA</button>
+          </Link>
+          <Link to="/Counter">
+          <button type="button">Counter</button>
+          </Link>
+          <br/>
+          <Link to="/home">
+          <button type="button">Home</button>
+          </Link>
+          <Link to="/contact">
+            <button type="button">Contact Us</button>
+          </Link>
+          <Link to="/users">
+          <button type="button">Users</button>
+          </Link>
+          <Link to="/404">
+            <button type="button">Click here to see dogs</button>
+          </Link>
+          <br/>
+          <Navigation />
+        </nav>
+        <Routes>
+          <Route path="/home" element={<HomePage/>} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/users" element={<UsersPage />} />
+          <Route path="/404" element={<ErrorPage/>} />
+          <Route path="/UserParams/:id" element={<UserParams/>}/>
+          <Route path="/TrueFalse" element={<TrueFalse />} />
+          <Route path="/DoxxMeQA" element={<DoxxMeQA/>} />
+          <Route path="/Counter" element={<Counter/>}/>
+          <Route path="/SubContent" element={<SubContent/>} />
+          <Route path="/LoginControl" element={<LoginControl/>} />
+          <Route path="/EmployeeInfo" element={<EmployeeInfo/>}/>
+          <Route path="/ProductManage" element={<ProductManage/>} />
+          <Route path="/GetFilm" element={<GetFilm/>} />
+          <Route path="/SearchFilm" element={<SearchFilm/>}/>
+        </Routes>
+    </Router>
     </div>
   );
 }

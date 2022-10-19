@@ -25,7 +25,7 @@ const SearchFilm = () => {
 //     GetFilms();
 // },[title]);
 
-    const SearchFilms = async (title) => {
+    const SearchFilms = async () => {
         const res = await axios.get("http://www.omdbapi.com/?apikey=3b53446e&s=" + title);
         console.log("Response:", res.data.Search);
         setFilmData(res.data.Search);
@@ -44,6 +44,7 @@ const SearchFilm = () => {
     //         setFilmData(response.filmData);
     //     });
     // };
+
     return ( 
         <>
             <label htmlFor="EnterFilmTitle">Please input your film title here:</label>
