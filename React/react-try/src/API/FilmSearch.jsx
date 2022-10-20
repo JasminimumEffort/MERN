@@ -2,6 +2,9 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Film from "./FilmTemplate.jsx";
 import {
+    Button, Col, Container, Form,
+  } from 'react-bootstrap';
+import {
     BrowserRouter as Router, Link, Route, Routes,
 } from 'react-router-dom';
 import GetFilms from "./GetFilms.jsx";
@@ -55,7 +58,8 @@ const SearchFilm = () => {
             <input type="text" id="EnterFilmTitle" value={title} onChange={event => setTitle(event.target.value)} />
             <button type="button" onClick={SearchFilms}>SEARCH</button>
             <br />
-            <div>
+            <Container>
+            <div className="row row-cols-3 g-4">
                 {FilmData.map((film) => (
                     <Film
                         key={film.imdbID}
@@ -65,7 +69,9 @@ const SearchFilm = () => {
                         button={film.imdbID}
                     />
 
-                ))}</div>
+                ))}
+            </div>
+            </Container>
             {/* <h2>{title}</h2>
             <section>
                 <p>Title: {filmData.Title}</p>

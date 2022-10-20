@@ -1,5 +1,9 @@
 
 // import styled from "styled-components";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {
+  Button, Col, Container, Nav, Row,
+} from 'react-bootstrap';
 import DoxxMeQA from './doxxMeQa';
 import Somefunc from "./newFunction";
 import MyComponent from "./mycomponent";
